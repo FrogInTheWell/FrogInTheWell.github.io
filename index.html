@@ -178,10 +178,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-03 15:02:18 / 修改时间：18:28:27" itemprop="dateCreated datePublished" datetime="2020-08-03T15:02:18+08:00">2020-08-03</time>
+              <time title="创建时间：2020-08-03 15:02:18" itemprop="dateCreated datePublished" datetime="2020-08-03T15:02:18+08:00">2020-08-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-04 20:50:01" itemprop="dateModified" datetime="2020-08-04T20:50:01+08:00">2020-08-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -203,9 +209,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>4.6 Lambda表达式(函数式编程)<br>4.6.1 了解Lambda<br>局限性： 只针对于有且只有一个抽象方法的接口（函数式接口）才能使用;<br>组成：一个Lambda表达式包括三个部分：参数列表、“-&gt;”（箭牌）、表达式主体（接口中的抽象方法）;<br>语法格式：（[数据类型 参数名,数据类型 参数名···]）-&gt;{表达式主题}；<br>只有一个参数时可以省略小括号，表达式主题只有一条语句可以省略大括号，数据类型可以不写，后面表达式会自行校对和匹配;<br>表达时式主体允许有返回值，当只有一条return语句时可以省略return关键字;</p>
+          <p><a href="html05.html" target="_blank">游戏简介</a></p>
+<h2 id="4-6-Lambda式编程"><a href="#4-6-Lambda式编程" class="headerlink" title="4.6 Lambda式编程)"></a>4.6 Lambda式编程)</h2><p>4.6.1 了解Lambda<br>局限性： 只针对于有且只有一个抽象方法的接口（函数式接口）才能使用。<br>组成：一个Lambda表达式包括三个部分：参数列表、“-&gt;”（箭牌）、表达式主体（接口中的抽象方法）。<br>语法格式：（[数据类型 参数名,数据类型 参数名···]）-&gt;{表达式主题}。<br>只有一个参数时可以省略小括号，表达式主题只有一条语句可以省略大括号，数据类型可以不写，后面表达式会自行校对和匹配。<br>表达时式主体允许有返回值，当只有一条return语句时可以省略return关键字。</p>
 <p>4.6.2 函数式接口</p>
-<pre><code>interface MathAnd&#123;
+<pre><code>inerface MathAnd&#123;
     public int and(int a,int b) ;
 &#125;
 public class Demo&#123;
@@ -218,26 +225,58 @@ public class Demo&#123;
         //输出结果为 5;
     &#125;
 &#125;</code></pre>
-<p>4.6.3 方法引用与构造器引用<br><img src="image\Lambda表达式对普通方法的引用形式.png">&gt;<br>（1）类名引用静态方法</p>
-<pre><code>interface MathAnd01&#123;
-    public int and(int a,int b) ;
-&#125;
-class MathAnd02&#123;
-    public static int and(int a,int b) &#123;
-        return a-b;
+<p>4.6.3 方法引用与构造器引用<br><img src="image\Lambda表达式对普通方法的引用形式.png"></p>
+<pre><code>    package qingwa;
+    interface  Animal&#123;
+        public void animalShout(String  name);
     &#125;
-&#125;
-public class Demo&#123;
-    public static void main(String[] args) &#123;
-        and(2,3,(x,y)-&gt;x+y);    //返回值为 -1;
-        and(2,3,MathAnd02::and);//返回值为  5;
+    public class Demo&#123;
+        public static void main(String[] args) &#123;
+            //Lambda表达式,类名调用静态方法;
+            shout(&quot;猫&quot;,name-&gt;AnimalName01.thisAnimal(name));
+            //引号，类名调用静态方法;
+            shout(&quot;猫&quot;,AnimalName01::thisAnimal);
+            //创建 AnimalName对象;
+            AnimalName02 animalname=new AnimalName02();
+            //Lambda表达式，对象名调用静态方法;
+            shout(&quot;人&quot; ,name-&gt;animalname.thisAnimal(name));
+            //引号，类名调用静态方法;
+            shout(&quot;人&quot;,animalname::thisAnimal);
+            //Lambda表达式，构造器引用方法;
+            printName(&quot;狗&quot; ,name-&gt;new AnimalName03(name));
+            //引号，构造器引用方法;
+            printName(&quot;狗&quot;,AnimalName03::new);
+        &#125;
+        public static void shout(String name,Animal animal)&#123;
+            animal.animalShout(name);
+        &#125;
+        public static void printName(String name,Animal animal)&#123;
+            animal.animalShout(name);
+        &#125;
     &#125;
-    public static void and(int a,int b,MathAnd01 mathand) &#123;
-        mathand.and(a,b);
-        System.out.println(mathand.and(a,b));
+    class AnimalName01&#123;
+        //类名引用的方法和成员必须用static修饰;
+        public static void thisAnimal(String name)&#123;
+            System.out.println(&quot;我的品种是：&quot;+name);
+        &#125;
     &#125;
-&#125;</code></pre>
-<p> (2)对象名引用方法</p>
+    class AnimalName02&#123;
+        public  void thisAnimal(String name)&#123;
+            System.out.println(&quot;我的品种是：&quot;+name);
+        &#125;
+    &#125;
+    class AnimalName03 &#123;
+        //创建构造器;
+        public AnimalName03(String name) &#123;
+            System.out.println(&quot;我的品种是：&quot;+name);
+        &#125;
+    &#125;</code></pre>
+<p>4.7.1 什么是异常<br>所有的异常类都继承java.lang.Throwble 类。<br>·Error 错误类，它时产生的“系统内部资源耗尽”的错误，是比较严重的，仅靠修改程序本身是不能恢复执行的行的，如虚拟机错误，系统崩溃等。<br>·Excption 异常类，它是程序本身可以处理的错误。</p>
+<img src="image\Throwable 异常体系结构图.png">
+
+<p>4.1.2 异常的类型<br>异常分为 编译时异常（又称 checked 异常）和运行是异常（又称 unchecked异常）。<br>Exception异常类除 RuntimeException 类及其子类（是运行时异常），其他子类为编译时异常<br>Throwable 类的 String getName() 方发能返回此 throwable 的详细信息字符串（异常信息）。<br>·编译时异常的解决方法：<br>（1）使用 try···catch 捕捉异常。<br>    语法格式：     try{ //可能发生异常的语句（捕捉异常），发生异常语句后面的代码不会被执行;<br>                    }catch (Exception 类及其子类 e){<br>                    //对捕捉的异常进行处理（抛出处理）;<br>                }finally{<br>                //无论try是否捕捉到异常，放在这里的语句都会被执行；<br>            } </p>
+<p>（2）使用 throws 关键字声明抛出异常，让使用者对其处理。<br>    优点：可以一次性抛出多种异常。<br>    语法格式：     [修饰符] 返回值 方法名（）throws 异常类1，异常类2，···{<br>                                    //方法体···;<br>                                }</p>
+<p>·运行时异常程序可能编译通过，只是在运行中可能会报错<br><img src="image\常见运行时异常.png"></p>
 <p>多线程<br>1.继承Thread类<br>(1)子类继承Thread类具备多线程能力<br>(2) 启动线程： 子类对象.start()<br>(3)顺序：创建一个子类A继承（extends）Thread类；<br>在子类A中重写run（）方法；<br>对子类A实例化对象a；<br>通过a.start()启动线程</p>
 <p>2.实现Runnable接口<br>(1)实现类接口Runnable具备多线程能力<br>(2)启动线程：传入目标对象+Tread对象.对象.start()<br>(3)顺序: 创建一个 Runnable 接口的实现类，同时重写接口中的 run() 方法；<br>创建Runnable 接口的现类对象；<br>使用 Thread 有参构造方法创建线程实例，并将Runnable接口的实现类的实例对象作为参数传入；<br>调用线程实例的 start() 方法启动线程<br>(3)与继承Thread类相比优点：避免单继承局限，灵活方便，方便同一个对象被多个线程使用 </p>
 
