@@ -28,7 +28,7 @@
 <meta property="og:description" content="标识符的定义规则：数字、字母、美元符号、下划线、中文(不使用)，不能以数字开头。定义变量使用 var  &#x2F;&#x2F;var 代表任意数据类型；输出语句： alert(); 或console.log(); 数据型 不区分小数和整数。 NaN       &#x2F;&#x2F;not a number。 Infinity    &#x2F;&#x2F;表示无限大。 字符串用 “” 或 ‘’ 引起来。 多行编写字符串用一对 “Tab 上面的键” 包">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-04T13:15:21.000Z">
-<meta property="article:modified_time" content="2020-08-10T10:32:00.902Z">
+<meta property="article:modified_time" content="2020-08-10T10:43:21.663Z">
 <meta property="article:author" content="guolulu">
 <meta name="twitter:card" content="summary">
 
@@ -190,7 +190,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-10 18:32:00" itemprop="dateModified" datetime="2020-08-10T18:32:00+08:00">2020-08-10</time>
+                <time title="修改时间：2020-08-10 18:43:21" itemprop="dateModified" datetime="2020-08-10T18:43:21+08:00">2020-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,8 +224,8 @@
 <li>undefind   //未定义;</li>
 <li>数组<br> （1）定义：    var arr=[//任意数据类型]<pre><code>         new Array(//任意数据类型)</code></pre>
  （2）尾部 - push()添加，pop()删除。<br> （3）头部 - unshift()添加，shift()删除。</li>
-<li>对象<br> (1)定义：<br>  var 对象名 = {<pre><code>         属性名: 属性值，
-         属性名: 属性值，
+<li>对象<br> (1)定义：<br>  var 对象名 = {<pre><code>         属性名: 属性值,
+         属性名: 属性值,
          属性名: 属性值
          &#125; </code></pre>
  (2) 引用： 对象名.属性名<br> (3) 动态删减     delete 对象名.属性名<pre><code> 动态添加   对象名.属性名=属性值</code></pre>
@@ -235,26 +235,17 @@
 <h2 id="严格检查格式"><a href="#严格检查格式" class="headerlink" title="严格检查格式"></a>严格检查格式</h2><p>“use strict”; 必须写在 javaScript 的第一行。<br>作用：预防 javaScript 的随意性可能导致产生的问题。<br>局部变量建议使用 let 定义。</p>
 <h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>if语句，while语句，for循环 和Java使用规则相同。<br>forEach 循环：<br>    对象名.forEach(function (value)){     //value 表示当前元素;<br>        console.log(value);<br>    }<br>for、、、in 循环：<br>    for(var x in 对象名){<br>    //打印下标;<br>    console.log(x);<br>    }<br>for、、、of 循环<br>    for(var x of 对象名){<br>        //属性值;<br>        console.log(x);<br>        }</p>
 <h2 id="Map和Set"><a href="#Map和Set" class="headerlink" title="Map和Set"></a>Map和Set</h2><ol>
-<li><p>Map 是一种双列集合，它的每个元素都包含一个键对象Key和值对象Value，键和值对象之间的映射关系是一对一的，其中键对象Key不允许重复，只要指定了Key，就能找到对应的Value。</p>
-<pre><code> var map=new Map([[&quot;tom&quot;,15],[&quot;jake&quot;,15],]);
+<li>Map 是一种双列集合，它的每个元素都包含一个键对象Key和值对象Value，键和值对象之间的映射关系是一对一的，其中键对象Key不允许重复，只要指定了Key，就能找到对应的Value。<pre><code> var map=new Map([[&quot;tom&quot;,15],[&quot;jake&quot;,15],]);
  //通过key获得value;
  var name=map.get(&quot;tom&quot;);
  console.log(name);
  map.set(&quot;jake&quot;,16);   //修改;
  map.set(&quot;linsa&quot;,17);  //添加;</code></pre>
 </li>
-<li><p>Set 集合的特点是元素无序，并且不能重复。<br> let set=new Set([元素1，元素2···]);<br> 添加元素：对象名.add(待添加元素);<br> 删除元素：对象名.delete(待删除元素);<br> 查看元素是否存在 存在true,不存在false : 对象名.has(查看元素);</p>
-</li>
-<li><p>方法<br>(1) 定义方法1：<br>   function  方法名(参数1，参数2、、、){</p>
-<pre><code>   //方法体;
- &#125;</code></pre>
-<p>(2) 定义方法2：<br>  let 变量名= function (参数1，参数2、、、){</p>
-<pre><code>     //方法体;
-&#125;</code></pre>
-<p>（3）argiuments<br> 作用：用于存储所有参数的数组;</p>
-</li>
+<li>Set 集合的特点是元素无序，并且不能重复。<br> let set=new Set([元素1，元素2···]);<br> 添加元素：对象名.add(待添加元素);<br> 删除元素：对象名.delete(待删除元素);<br> 查看元素是否存在 存在true,不存在false : 对象名.has(查看元素);</li>
 </ol>
-<p>（4）存储多余参数的数组;<br>    //数组名xt 可以自定义，符合标识符的特点就可以;<br>    let fount= function (a,b,…xt){<br>                console.log(“a-&gt;”+a);<br>                // console.log(“b-&gt;”+b);<br>               console.log(xt);<br>           }</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p> (1) 定义方法1：<br>      function  方法名(参数1，参数2、、、){<br>          //方法体;<br>        }<br> (2) 定义方法2：<br>     let 变量名= function (参数1，参数2、、、){<br>            //方法体;<br>       }<br>（3）argiuments<br>    作用：用于存储所有参数的数组;</p>
+<p>（4）存储多余参数的数组;<br>    //数组名xt 可以自定义，符合标识符的特点就可以;<br>        let fount= function (a,b,…xt){<br>                    console.log(“a-&gt;”+a);<br>                    // console.log(“b-&gt;”+b);<br>                   console.log(xt);<br>               }</p>
 
     </div>
 
@@ -332,7 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A5%E6%A0%BC%E6%A3%80%E6%9F%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">严格检查格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map%E5%92%8CSet"><span class="nav-number">4.</span> <span class="nav-text">Map和Set</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A5%E6%A0%BC%E6%A3%80%E6%9F%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">严格检查格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map%E5%92%8CSet"><span class="nav-number">4.</span> <span class="nav-text">Map和Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
